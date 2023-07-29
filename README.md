@@ -40,7 +40,7 @@ https://jpg241.dev.archive.org
 
 
 ## Source Code
-https://github.com/internetarchive/jpg21
+https://github.com/internetarchive/jpg241
 
 
 ## Encoding imagery
