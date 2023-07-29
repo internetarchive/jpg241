@@ -1,6 +1,8 @@
 FROM denoland/deno:alpine
 
 RUN apk update && apk add \
+      # for shell out
+      bash \
       # for `env -S`
       coreutils \
       # for cjpeg:
