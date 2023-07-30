@@ -57,7 +57,7 @@ Example encoding:
 convert INPUT INPUT.ppm
 
 # create JPG with wanted scans profile
-cjpeg --scans scans.txt INPUT.ppm > encoded.jpg
+cjpeg -scans scans.txt INPUT.ppm > encoded.jpg
 ```
 (see the [Dockerfile](Dockerfile) for more info on the packages for `convert` and `cjpeg`)
 
