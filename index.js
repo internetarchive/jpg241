@@ -25,12 +25,14 @@ httpd(async (req, headers) => {
   // but very very blocky, w/ approximated colors, etc.  We can cut the file off there,
   // but in testing 300 images, (just) one didn't have enough information
   // (likely unlucky random FFDA sequence).  So, cutoff after second scan.
+  // hexdump file to long string of [0-9a-f] chars -- then show where `ffda` appears in file
   const cmd = `xxd -p -c0 ${esc(fi)} | grep -o --byte-offset ffda -m3 | cut -f1 -d:`
   warn(cmd)
   // NOTE: weirdly, have seen it return *4* hits, even though "-m3".  So test ">= 3" below..
   const hits = await exe(cmd, ARRAY, CONTINUE)
   warn({ fi, hits })
   // If we saw the start of at least 3 scans, cutoff the file after first two scans.
+  // Divide by two, since each byte was transformed above to two hexadecimal (ASCII) chars.
   const nbytes = Number(hits.length >= 3 ? hits[2] : 0) / 2
 
   headers.set('content-type', 'image/jpeg; charset=UTF-8')
