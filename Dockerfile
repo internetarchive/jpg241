@@ -18,4 +18,6 @@ COPY . .
 # like jekyll, convert `README.md` to `index.html`
 RUN echo 'import showdown from "https://esm.archive.org/showdown"; Deno.writeTextFileSync("index.html", new showdown.Converter({ completeHTMLDocument: true, tables: true, metadata: true }).makeHtml(Deno.readTextFileSync("README.md")))' | deno run -A -
 
+RUN deno cache ./index.js
+
 CMD ./index.js -p5000
