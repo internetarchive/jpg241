@@ -1,11 +1,15 @@
-<title>jpg241 - Author & serve a single progressive JPEG image which can be served as two different qualities - JPG "Two for One" </title>
+---
+title: jpg241 - Author & serve a single progressive JPEG image which can be served as two different qualities - JPG "Two for One"
+---
 
 # jpg241
 Author & serve a single progressive JPEG image which can be served as two different qualities
 -- "Two for One" 😁
 
-## Overview
+## Motivation
+Tracey Jaquith, from [Internet Archive](https://archive.org), runs their Imagery API.  She was looking for a way to encode two downloadable qualities into a _single file_...
 
+## Overview
 We transform images to a 'steep progressive' JPEG.
 
 Let's say we are sending out 180px width thumbnails.
@@ -25,7 +29,7 @@ For the preview image, you can just serve out the start of the file, cutting it 
 
 ## Demo Site
 
-https://jpg241.dev.archive.org
+[https://jpg241.dev.archive.org](https://jpg241.dev.archive.org)
 
 | wedding.jpg   |  bytes   |  url |
 | ------------- | -------: | --------------------------------------------------- |
@@ -40,7 +44,7 @@ https://jpg241.dev.archive.org
 
 
 ## Source Code
-https://github.com/internetarchive/jpg241
+[https://github.com/internetarchive/jpg241](https://github.com/internetarchive/jpg241)
 
 
 ## Encoding imagery
@@ -55,6 +59,7 @@ convert INPUT INPUT.ppm
 # create JPG with wanted scans profile
 cjpeg --scans scans.txt INPUT.ppm > encoded.jpg
 ```
+(see the [Dockerfile](Dockerfile) for more info on the packages for `convert` and `cjpeg`)
 
 ## More details
 
@@ -64,8 +69,9 @@ If we are sending the full file, but cutoff at the start of the 3rd scan (keepin
 that's averaging about 6700 bytes (of ~72kb full file) in testing a few hundred random items.
 We keep one more scan than we think we might need because:
  - scans [2..5] are small (deliberately)
- - https://archive.org/details/morebooks was missing last few pixel rows w/ _just_ the 1st scan.
+ - [https://archive.org/details/morebooks](https://archive.org/details/morebooks) was missing last few pixel rows w/ _just_ the 1st scan.
 
 Clients / browsers / OS can handle the truncated image and will simply 'paint what it can'.
 
-Progressive JPEG - https://cloudinary.com/blog/progressive_jpegs_and_green_martians
+Progressive JPEG -
+[https://cloudinary.com/blog/progressive_jpegs_and_green_martians](https://cloudinary.com/blog/progressive_jpegs_and_green_martians)
