@@ -1,5 +1,8 @@
 on: push
 jobs:
+  lint:
+    uses: internetarchive/dyno/.github/workflows/lint.yml@main
+
   cicd:
     uses: internetarchive/cicd/.github/workflows/cicd.yml@main
     secrets:
