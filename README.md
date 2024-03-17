@@ -25,7 +25,7 @@ Thus, you can encode a _single file_, and simply serve it two different ways.
 
 For the preview image, you can just serve out the start of the file, cutting it off at the 3rd instance of hex pair of bytes `FFDA` 😁
 
-(This will truncate the file after only sending out the first 2 "scans")
+(This will truncate the file after only sending out the first 2 "scans".)
 
 ## Demo Site
 
