@@ -18,7 +18,7 @@ httpd(async (req, headers) => {
   }
   // only allow production or testing image dir file access
   if (!fi?.startsWith('/app/img/') && !fi?.startsWith('/Users/tracey/dev/jpg241/img/'))
-    return // 404 for you
+    return new Response('xxx', { headers }) // 404 for you
 
   // now look for Start of Sequence (SOS) marker 0xFFDA in the file - there should be 6
   // for IA made progressive JPEGs (one for each scan).  The first scan is full resolution
