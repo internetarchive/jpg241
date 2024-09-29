@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --location https://jpg241.dev.archive.org --no-check --allow-read=. --allow-write=. --allow-net --allow-run --watch
+#!/usr/bin/env -S deno run --location https://jpg241.dev.archive.org --no-check --allow-read=. --allow-write=. --allow-net --allow-run --allow-import --watch
 
 import httpd from 'https://deno.land/x/httpd/mod.js'
 import { warn } from 'https://av.prod.archive.org/js/util/log.js'
