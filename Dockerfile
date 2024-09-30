@@ -19,7 +19,7 @@ COPY . .
 RUN echo 'import showdown from "https://esm.archive.org/showdown"; Deno.writeTextFileSync("index.html", new showdown.Converter({ completeHTMLDocument: true, tables: true, metadata: true }).makeHtml(Deno.readTextFileSync("README.md")))' | deno run -A -
 
 # cache JS files we'll use
-RUN deno cache ./index.js
+RUN deno cache --allow-import ./index.js
 
 # fire up minimal webserver that serves static files & handles arbitrary routes to JS
 CMD ./index.js -p5000
