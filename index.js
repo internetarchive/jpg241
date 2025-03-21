@@ -1,10 +1,10 @@
 #!/usr/bin/env -S deno run --location https://jpg241.dev.archive.org --no-check --allow-read=. --allow-write=. --allow-net --allow-run --allow-import --watch
 
 import httpd from 'https://deno.land/x/httpd/mod.js'
-import { warn } from 'https://av.prod.archive.org/js/util/log.js'
+import { warn } from 'https://av.archive.org/js/util/log.js'
 import {
   exe, esc, ARRAY, CONTINUE,
-} from 'https://av.prod.archive.org/js/util/cmd.js'
+} from 'https://av.archive.org/js/util/cmd.js'
 
 
 httpd(async (req, headers) => {
